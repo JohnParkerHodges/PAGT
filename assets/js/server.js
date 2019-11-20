@@ -16,7 +16,11 @@ app.get('/', function (req, res) {
 
 app.get('/reserve', function (req, res) {
     res.sendFile(path.join(__dirname, "../../make.html"));
-})
+});
+
+app.get('/tables', function (req, res) {
+    res.sendFile(path.join(__dirname, "../../view.html"));
+ });
 
 app.get('/api/tables', (req, res) => {
     res.json(reservations)
@@ -30,11 +34,29 @@ app.post('/api/tables', (req, res) => {
     console.log('in post route')
     const newTable = req.body;
 
+    let list;
     console.log(newTable)
     
-    reservations.push(newTable)
+    if(reservations.length >= 8) {
+        listKey = 'waitlist';
+        list = waitlist;
+        waitlist.push(newTable)
+    } else {
 
+        listKey = 'reservations';
+        list = reservations;
+        reservations.push(newTable)
+        
+    }
     res.json(req.body)
+    
+        fs.writeFile(`../storage/${listKey}.json`, JSON.stringify(list), function(err) {
+            
+            if(err) throw err;
+
+            console.log("Table logged")
+        });
+    
     
 });
 

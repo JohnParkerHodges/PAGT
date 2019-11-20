@@ -7,11 +7,14 @@ const waitlist = require('../storage/waitlist.json')
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get("/", function (req, res) {
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, "../../index.html"));
 });
 
-app.get("/reserve", function (req, res) {
+app.get('/reserve', function (req, res) {
     res.sendFile(path.join(__dirname, "../../make.html"));
 })
 
@@ -23,7 +26,15 @@ app.get('/api/waiting', (req, res) => {
     res.json(waitlist)
 });
 
-app.post('/reserve', (req, res) => {
+app.post('/api/tables', (req, res) => {
+    console.log('in post route')
+    const newTable = req.body;
+
+    console.log(newTable)
+    
+    reservations.push(newTable)
+
+    res.json(req.body)
     
 });
 

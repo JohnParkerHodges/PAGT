@@ -23,7 +23,7 @@
                     </span>
                     <hr>
                     <h2 class="text-center">Make your Reservation</h2>
-                    <div class="text-center"><button class="fas fa-table btn btn-lg btn-primary"> View Tables</button>
+                    <a href="view.html"><div class="text-center"><button class="fas fa-table btn btn-lg btn-primary"> View Tables</button></a>
                         <a href="./index.html"><button class="btn btn-outline-secondary btn-lg ml-1 fas fa-home"
                                 id="home"></button></a>
                     </div>
@@ -55,7 +55,7 @@
                                 <label class="font-weight-bold">ID:</label>
                                 <input id="idField" type="text" class="form-control">
                             </div>
-                            <button type="submit" id="submit" class="btn btn-primary submit">Submit</button>
+                            <button type="button" id="submit" class="btn btn-primary submit">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -65,11 +65,12 @@
     <!--Footer for the api tables-->
     <footer class="footer mt-4">
         <div class="container">
-            <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
+            <p><a href="assets/storage/reservations.json">API Table Link</a> | <a href="assets/storage/waitlist.json">API Wait List</a> </p>
         </div>
     </footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="./assets/js/make.js"></script>
 
 </html>

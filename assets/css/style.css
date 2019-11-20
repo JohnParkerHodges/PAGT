@@ -1,5 +1,6 @@
 body {
-    background-image: url(/assets/images/wooden-planks-with-blurred-restaurant-background_1253-56.jpg);
-    background-repeat: round;
+    background-image: url(../images/wooden-planks-with-blurred-restaurant-background_1253-56.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     max-height: 100%;
 }
